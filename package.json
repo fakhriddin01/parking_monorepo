@@ -5,14 +5,20 @@
   "private": true,
   "scripts": {
     "format": "prettier  \"{apps,libs}/**/*.{ts,tsx,js,json}\" --ignore-path .gitignore",
-    "format:check": "yarn format --check",
-    "format:write": "yarn format --write"
+    "format:check": "pnpm format --check",
+    "format:write": "pnpm format --write",
+    "tsc": "pnpm --parallel -r run tsc",
+    "lint": "pnpm --parallel -r run lint",
+    "build": "pnpm --parallel -r run build",
+    "validate": "pnpm format:write &&  pnpm tsc && pnpm lint && pnpm build",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "prettier": "^3.0.0",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "husky": "^8.0.0"
   }
 }
